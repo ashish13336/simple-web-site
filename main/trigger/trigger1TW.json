@@ -2,15 +2,6 @@
 	"name": "trigger1TW",
 	"properties": {
 		"runtimeState": "Started",
-		"pipeline": {
-			"pipelineReference": {
-				"referenceName": "pipeline1",
-				"type": "PipelineReference"
-			},
-			"parameters": {
-				"slicetime": "@trigger().outputs.windowStartTime"
-			}
-		},
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Hour",
