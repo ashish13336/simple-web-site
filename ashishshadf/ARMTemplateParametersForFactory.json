@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ashishshadf"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage1repro_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorageadfv2_connectionString": {
+			"value": ""
+		},
+		"linkedService1_password": {
+			"value": ""
+		},
+		"linkedService1repro_password": {
+			"value": ""
+		},
+		"linkedService1_properties_typeProperties_userName": {
+			"value": "admin"
+		},
+		"linkedService1repro_properties_typeProperties_userName": {
+			"value": "admin"
+		},
+		"trigger1TW_properties_pipeline_parameters_slicetime": {
+			"value": "@trigger().outputs.windowStartTime"
+		}
+	}
+}
