@@ -1,7 +1,7 @@
 {
 	"name": "trigger2sch",
 	"properties": {
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
