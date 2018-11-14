@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Hive1",
+				"name": "Hive",
 				"type": "HDInsightHive",
 				"dependsOn": [
 					{
@@ -47,7 +47,7 @@
 		"parameters": {
 			"slice": {
 				"type": "String",
-				"defaultValue": "\"@trigger().scheduledTime\""
+				"defaultValue": "@trigger().scheduledTime"
 			}
 		},
 		"variables": {
