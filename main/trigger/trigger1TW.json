@@ -1,12 +1,12 @@
 {
 	"name": "trigger1TW",
 	"properties": {
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Hour",
 			"interval": 1,
-			"startTime": "2018-10-30T05:02:00Z",
+			"startTime": "2018-10-30T05:02:00.000Z",
 			"delay": "00:00:00",
 			"maxConcurrency": 50,
 			"retryPolicy": {
