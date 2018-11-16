@@ -185,7 +185,7 @@
 					},
 					{
 						"name": "Prop_1",
-						"type": "String"
+						"type": "Byte[]"
 					},
 					{
 						"name": "Prop_2",
