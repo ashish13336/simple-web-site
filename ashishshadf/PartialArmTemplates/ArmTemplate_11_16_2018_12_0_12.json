@@ -6,62 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory Name",
 			"defaultValue": "ashishshadf"
-		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
-		},
-		"AzureBlobStorage1repro_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1repro'"
-		},
-		"AzureBlobStorageadfv2_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorageadfv2'"
-		},
-		"AzureSqlDatabase1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
-		},
-		"linkedService1_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'linkedService1'"
-		},
-		"linkedService1repro_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'linkedService1repro'"
-		},
-		"AzureDataLakeStoreFile1_properties_typeProperties_fileName": {
-			"type": "string",
-			"defaultValue": "data.txt"
-		},
-		"AzureDataLakeStoreFile1_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "ashish"
-		},
-		"AzureDataLakeStore1_properties_typeProperties_dataLakeStoreUri": {
-			"type": "string",
-			"defaultValue": "https://ashishsh.azuredatalakestore.net/webhdfs/v1"
-		},
-		"AzureDataLakeStore1_properties_typeProperties_tenant": {
-			"type": "string",
-			"defaultValue": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-		},
-		"AzureDataLakeStore1_properties_typeProperties_subscriptionId": {
-			"type": "string",
-			"defaultValue": "df673442-9f03-4dfb-83a5-4c9d9501b749"
-		},
-		"AzureDataLakeStore1_properties_typeProperties_resourceGroupName": {
-			"type": "string",
-			"defaultValue": "ashishsh"
-		},
-		"linkedService1_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "admin"
-		},
-		"linkedService1repro_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "admin"
 		}
 	},
 	"variables": {
@@ -77,7 +21,6 @@
 					{
 						"name": "Copy DataFromAdlsToSql",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -85,7 +28,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "AzureDataLakeStoreSource",
@@ -147,20 +89,17 @@
 						"inputs": [
 							{
 								"referenceName": "AzureDataLakeStoreFile1",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "AzureSqlTable1",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
-				],
-				"annotations": []
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/AzureDataLakeStoreFile1')]",
@@ -176,7 +115,6 @@
 					"referenceName": "AzureDataLakeStore1",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureDataLakeStoreFile",
 				"structure": [
 					{
@@ -354,13 +292,10 @@
 						"skipLineCount": 0,
 						"firstRowAsHeader": false
 					},
-					"fileName": "[parameters('AzureDataLakeStoreFile1_properties_typeProperties_fileName')]",
-					"folderPath": "[parameters('AzureDataLakeStoreFile1_properties_typeProperties_folderPath')]"
+					"fileName": "data.txt",
+					"folderPath": "ashish"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStore1')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
@@ -371,7 +306,6 @@
 					"referenceName": "AzureSqlDatabase1",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureSqlTable",
 				"structure": [
 					{
@@ -542,127 +476,7 @@
 				"typeProperties": {
 					"tableName": "[concat('[', 'dbo].[test]')]"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1repro')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage1repro_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorageadfv2')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorageadfv2_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStore1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureDataLakeStore",
-				"typeProperties": {
-					"dataLakeStoreUri": "[parameters('AzureDataLakeStore1_properties_typeProperties_dataLakeStoreUri')]",
-					"tenant": "[parameters('AzureDataLakeStore1_properties_typeProperties_tenant')]",
-					"subscriptionId": "[parameters('AzureDataLakeStore1_properties_typeProperties_subscriptionId')]",
-					"resourceGroupName": "[parameters('AzureDataLakeStore1_properties_typeProperties_resourceGroupName')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureSqlDatabase1_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/linkedService1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "HDInsight",
-				"typeProperties": {
-					"clusterUri": "https://clustertestashish.azurehdinsight.net",
-					"userName": "[parameters('linkedService1_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('linkedService1_password')]"
-					},
-					"isEspEnabled": false,
-					"linkedServiceName": {
-						"referenceName": "AzureBlobStorage1",
-						"type": "LinkedServiceReference"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/linkedService1repro')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "HDInsight",
-				"typeProperties": {
-					"clusterUri": "https://ashishrepro.azurehdinsight.net",
-					"userName": "[parameters('linkedService1repro_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('linkedService1repro_password')]"
-					},
-					"linkedServiceName": {
-						"referenceName": "AzureBlobStorage1repro",
-						"type": "LinkedServiceReference"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1repro')]"
-			]
+			}
 		}
 	]
 }

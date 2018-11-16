@@ -14,20 +14,38 @@
 		"AzureBlobStorageadfv2_connectionString": {
 			"value": ""
 		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
 		"linkedService1_password": {
 			"value": ""
 		},
 		"linkedService1repro_password": {
 			"value": ""
 		},
+		"AzureDataLakeStoreFile1_properties_typeProperties_fileName": {
+			"value": "data.txt"
+		},
+		"AzureDataLakeStoreFile1_properties_typeProperties_folderPath": {
+			"value": "ashish"
+		},
+		"AzureDataLakeStore1_properties_typeProperties_dataLakeStoreUri": {
+			"value": "https://ashishsh.azuredatalakestore.net/webhdfs/v1"
+		},
+		"AzureDataLakeStore1_properties_typeProperties_tenant": {
+			"value": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+		},
+		"AzureDataLakeStore1_properties_typeProperties_subscriptionId": {
+			"value": "df673442-9f03-4dfb-83a5-4c9d9501b749"
+		},
+		"AzureDataLakeStore1_properties_typeProperties_resourceGroupName": {
+			"value": "ashishsh"
+		},
 		"linkedService1_properties_typeProperties_userName": {
 			"value": "admin"
 		},
 		"linkedService1repro_properties_typeProperties_userName": {
 			"value": "admin"
-		},
-		"trigger1TW_properties_pipeline_parameters_slicetime": {
-			"value": "@trigger().outputs.windowStartTime"
 		}
 	}
 }
