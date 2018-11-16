@@ -1,0 +1,179 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "PaymentApprovalID",
+				"type": "Int64"
+			},
+			{
+				"name": "HashKey",
+				"type": "Byte[]"
+			},
+			{
+				"name": "FiscalYearID",
+				"type": "Int16"
+			},
+			{
+				"name": "FiscalQuarterID",
+				"type": "Int16"
+			},
+			{
+				"name": "WageType_Code",
+				"type": "String"
+			},
+			{
+				"name": "PersonnelNumber",
+				"type": "Int32"
+			},
+			{
+				"name": "PayeeStatus",
+				"type": "String"
+			},
+			{
+				"name": "PayeeStatusDescription",
+				"type": "String"
+			},
+			{
+				"name": "CodeCurrency",
+				"type": "String"
+			},
+			{
+				"name": "PaymentCurrency",
+				"type": "String"
+			},
+			{
+				"name": "ActiveEarningsAmount",
+				"type": "Decimal"
+			},
+			{
+				"name": "TAEarningsAmount",
+				"type": "Decimal"
+			},
+			{
+				"name": "LOAEarningsAmount",
+				"type": "Decimal"
+			},
+			{
+				"name": "TotalEarnings",
+				"type": "Decimal"
+			},
+			{
+				"name": "CountryCode",
+				"type": "String"
+			},
+			{
+				"name": "NewCountryCode",
+				"type": "String"
+			},
+			{
+				"name": "CompanyCode",
+				"type": "String"
+			},
+			{
+				"name": "NewCompanyCode",
+				"type": "String"
+			},
+			{
+				"name": "ManualPaymentAdjustmentAmount",
+				"type": "Decimal"
+			},
+			{
+				"name": "PaymentRecoveryAmount",
+				"type": "Decimal"
+			},
+			{
+				"name": "PaymentAdjustmentAmount",
+				"type": "Decimal"
+			},
+			{
+				"name": "PreviousPaymentAmount",
+				"type": "Decimal"
+			},
+			{
+				"name": "NetPaymentAmount",
+				"type": "Decimal"
+			},
+			{
+				"name": "CurrencyConversionFactor",
+				"type": "Double"
+			},
+			{
+				"name": "FinalPaymentAmount",
+				"type": "Decimal"
+			},
+			{
+				"name": "IsCompliant",
+				"type": "Boolean"
+			},
+			{
+				"name": "IsLocalLawCountry",
+				"type": "Boolean"
+			},
+			{
+				"name": "IsOptOut",
+				"type": "Boolean"
+			},
+			{
+				"name": "PaymentStatusID",
+				"type": "Byte"
+			},
+			{
+				"name": "EarningsStartDate",
+				"type": "DateTime"
+			},
+			{
+				"name": "EarningsEndDate",
+				"type": "DateTime"
+			},
+			{
+				"name": "PaymentStartDate",
+				"type": "DateTime"
+			},
+			{
+				"name": "PaymentEndDate",
+				"type": "DateTime"
+			},
+			{
+				"name": "PayfileName",
+				"type": "String"
+			},
+			{
+				"name": "PayfilePath",
+				"type": "String"
+			},
+			{
+				"name": "ApprovedBy",
+				"type": "String"
+			},
+			{
+				"name": "ApprovedDateTime",
+				"type": "DateTime"
+			},
+			{
+				"name": "IsOffcycle",
+				"type": "Boolean"
+			},
+			{
+				"name": "IsFrozenForCalc",
+				"type": "Boolean"
+			},
+			{
+				"name": "IsDND",
+				"type": "Boolean"
+			},
+			{
+				"name": "Comment",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[test]"
+		}
+	}
+}
