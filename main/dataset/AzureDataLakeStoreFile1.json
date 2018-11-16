@@ -81,7 +81,7 @@
 			},
 			{
 				"name": "Prop_18",
-				"type": "String"
+				"type": "Decimal"
 			},
 			{
 				"name": "Prop_19",
