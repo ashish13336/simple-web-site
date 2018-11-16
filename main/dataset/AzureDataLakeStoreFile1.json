@@ -182,8 +182,14 @@
 				"skipLineCount": 0,
 				"firstRowAsHeader": false
 			},
-			"fileName": "data.txt",
-			"folderPath": "/ashish"
+			"fileName": {
+				"value": "data.txt",
+				"type": "Expression"
+			},
+			"folderPath": {
+				"value": "/ashish",
+				"type": "Expression"
+			}
 		}
 	}
 }
