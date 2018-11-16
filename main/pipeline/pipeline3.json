@@ -83,6 +83,12 @@
 					}
 				]
 			}
-		]
+		],
+		"parameters": {
+			"time": {
+				"type": "String",
+				"defaultValue": "@pipeline().TriggerTime"
+			}
+		}
 	}
 }
