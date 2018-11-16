@@ -27,7 +27,7 @@
 			"value": "data.txt"
 		},
 		"AzureDataLakeStoreFile1_properties_typeProperties_folderPath": {
-			"value": "ashish"
+			"value": "/ashish"
 		},
 		"AzureDataLakeStore1_properties_typeProperties_dataLakeStoreUri": {
 			"value": "https://ashishsh.azuredatalakestore.net/webhdfs/v1"

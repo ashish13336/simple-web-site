@@ -37,7 +37,7 @@
 		},
 		"AzureDataLakeStoreFile1_properties_typeProperties_folderPath": {
 			"type": "string",
-			"defaultValue": "ashish"
+			"defaultValue": "/ashish"
 		},
 		"AzureDataLakeStore1_properties_typeProperties_dataLakeStoreUri": {
 			"type": "string",
@@ -160,6 +160,12 @@
 						]
 					}
 				],
+				"parameters": {
+					"time": {
+						"type": "String",
+						"defaultValue": "@pipeline().TriggerTime"
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
@@ -354,8 +360,14 @@
 						"skipLineCount": 0,
 						"firstRowAsHeader": false
 					},
-					"fileName": "[parameters('AzureDataLakeStoreFile1_properties_typeProperties_fileName')]",
-					"folderPath": "[parameters('AzureDataLakeStoreFile1_properties_typeProperties_folderPath')]"
+					"fileName": {
+						"value": "[parameters('AzureDataLakeStoreFile1_properties_typeProperties_fileName')]",
+						"type": "Expression"
+					},
+					"folderPath": {
+						"value": "[parameters('AzureDataLakeStoreFile1_properties_typeProperties_folderPath')]",
+						"type": "Expression"
+					}
 				}
 			},
 			"dependsOn": [
