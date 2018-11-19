@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy DataFromAdlsToSql",
-				"type": "Copy",
+				"name": "WebFirst",
+				"type": "WebActivity",
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -13,81 +13,30 @@
 					"secureInput": false
 				},
 				"typeProperties": {
-					"source": {
-						"type": "AzureDataLakeStoreSource",
-						"recursive": true
+					"url": "https://graph.microsoft.com/v1.0",
+					"method": "GET",
+					"headers": {
+						"calender": "/me/calendars"
 					},
-					"sink": {
-						"type": "SqlSink",
-						"writeBatchSize": 10000
-					},
-					"enableStaging": false,
-					"dataIntegrationUnits": 0,
-					"translator": {
-						"type": "TabularTranslator",
-						"columnMappings": {
-							"Prop_0": "PaymentApprovalID",
-							"Prop_1": "HashKey",
-							"Prop_2": "FiscalYearID",
-							"Prop_3": "FiscalQuarterID",
-							"Prop_4": "WageType_Code",
-							"Prop_5": "PersonnelNumber",
-							"Prop_6": "PayeeStatus",
-							"Prop_7": "PayeeStatusDescription",
-							"Prop_8": "CodeCurrency",
-							"Prop_9": "PaymentCurrency",
-							"Prop_10": "ActiveEarningsAmount",
-							"Prop_11": "TAEarningsAmount",
-							"Prop_12": "LOAEarningsAmount",
-							"Prop_13": "TotalEarnings",
-							"Prop_14": "CountryCode",
-							"Prop_15": "NewCountryCode",
-							"Prop_16": "CompanyCode",
-							"Prop_17": "NewCompanyCode",
-							"Prop_18": "ManualPaymentAdjustmentAmount",
-							"Prop_19": "PaymentRecoveryAmount",
-							"Prop_20": "PaymentAdjustmentAmount",
-							"Prop_21": "PreviousPaymentAmount",
-							"Prop_22": "NetPaymentAmount",
-							"Prop_23": "CurrencyConversionFactor",
-							"Prop_24": "FinalPaymentAmount",
-							"Prop_25": "IsCompliant",
-							"Prop_26": "IsLocalLawCountry",
-							"Prop_27": "IsOptOut",
-							"Prop_28": "PaymentStatusID",
-							"Prop_29": "EarningsStartDate",
-							"Prop_30": "EarningsEndDate",
-							"Prop_31": "PaymentStartDate",
-							"Prop_32": "PaymentEndDate",
-							"Prop_33": "PayfileName",
-							"Prop_34": "PayfilePath",
-							"Prop_35": "ApprovedBy",
-							"Prop_36": "ApprovedDateTime",
-							"Prop_37": "IsOffcycle",
-							"Prop_38": "IsFrozenForCalc",
-							"Prop_39": "IsDND",
-							"Prop_40": "Comment"
+					"linkedServices": [
+						{
+							"referenceName": "AzureDataLakeStore1",
+							"type": "LinkedServiceReference"
 						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "AzureDataLakeStoreFile1",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "AzureSqlTable1",
-						"type": "DatasetReference"
-					}
-				]
+					],
+					"datasets": [
+						{
+							"referenceName": "AzureDataLakeStoreFile1",
+							"type": "DatasetReference"
+						}
+					]
+				}
 			}
 		],
 		"parameters": {
 			"time": {
 				"type": "String",
-				"defaultValue": "@pipeline().TriggerTime"
+				"defaultValue": "@{activity('WebFirst').output.token} "
 			}
 		}
 	}
