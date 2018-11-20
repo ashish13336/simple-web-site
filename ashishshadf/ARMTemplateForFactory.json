@@ -55,6 +55,10 @@
 			"type": "string",
 			"defaultValue": "ashishsh"
 		},
+		"HttpServer1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token"
+		},
 		"linkedService1_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "admin"
@@ -69,7 +73,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"name": "[concat(parameters('factoryName'), '/pipeline4')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -87,62 +91,21 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"url": "https://graph.microsoft.com/v1.0/me/",
+							"url": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token ",
 							"method": "POST",
-							"headers": {},
-							"body": "grant_type:password\nresource:https://graph.microsoft.com/\nusername:ashishsh@microsoft.com\npassword:Ashu$34473\nclient_secret:?!/@*X.|%--_%(j!-{6??@gH]=|=|\nclient_id:dd8178c3-3737-4887-8eef-62e0d20dca1d",
-							"linkedServices": [
-								{
-									"referenceName": "AzureDataLakeStore1",
-									"type": "LinkedServiceReference"
-								}
-							],
-							"datasets": [
-								{
-									"referenceName": "AzureDataLakeStoreFile1",
-									"type": "DatasetReference",
-									"parameters": {}
-								}
-							]
-						}
-					},
-					{
-						"name": "Web2",
-						"type": "WebActivity",
-						"dependsOn": [
-							{
-								"activity": "Web1",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"url": "https://graph.microsoft.com/v1.0/me/events",
-							"method": "GET",
 							"headers": {
-								"authorization": {
-									"value": "bearer @{activity('Web1').output.token}",
-									"type": "Expression"
-								}
+								"Content-Type": "application/x-www-form-urlencoded"
 							},
+							"body": "grant_type:password\nclient_id:dd8178c3-3737-4887-8eef-62e0d20dca1d\nresource:https://graph.microsoft.com/\nusername:ashishsh@microsoft.com\npassword:Ashu$34473\nclient_secret:?!/@*X.|%--_%(j!-{6??@gH]=|=|",
 							"linkedServices": [
 								{
-									"referenceName": "AzureDataLakeStore1",
+									"referenceName": "HttpServer1",
 									"type": "LinkedServiceReference"
 								}
 							],
 							"datasets": [
 								{
-									"referenceName": "AzureDataLakeStoreFile1",
+									"referenceName": "HttpFile1",
 									"type": "DatasetReference",
 									"parameters": {}
 								}
@@ -153,61 +116,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStore1')]",
-				"[concat(variables('factoryId'), '/datasets/AzureDataLakeStoreFile1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipeline3')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "WebFirst",
-						"type": "WebActivity",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"url": "https://graph.microsoft.com/v1.0",
-							"method": "GET",
-							"headers": {
-								"calender": "/me/calendars"
-							},
-							"linkedServices": [
-								{
-									"referenceName": "AzureDataLakeStore1",
-									"type": "LinkedServiceReference"
-								}
-							],
-							"datasets": [
-								{
-									"referenceName": "AzureDataLakeStoreFile1",
-									"type": "DatasetReference",
-									"parameters": {}
-								}
-							]
-						}
-					}
-				],
-				"parameters": {
-					"time": {
-						"type": "String",
-						"defaultValue": "@{activity('WebFirst').output.token} "
-					}
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStore1')]",
-				"[concat(variables('factoryId'), '/datasets/AzureDataLakeStoreFile1')]"
+				"[concat(variables('factoryId'), '/linkedServices/HttpServer1')]",
+				"[concat(variables('factoryId'), '/datasets/HttpFile1')]"
 			]
 		},
 		{
@@ -597,6 +507,31 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/HttpFile1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "HttpServer1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "HttpFile",
+				"typeProperties": {
+					"format": {
+						"type": "JsonFormat",
+						"filePattern": "setOfObjects"
+					},
+					"requestMethod": "Post",
+					"additionalHeaders": "Content-Type: application/x-www-form-urlencoded",
+					"requestBody": "grant_type:password\nclient_id:dd8178c3-3737-4887-8eef-62e0d20dca1d\nresource:https://graph.microsoft.com/\nusername:ashishsh@microsoft.com\npassword:Ashu$34473\nclient_secret:?!/@*X.|%--_%(j!-{6??@gH]=|=|\n"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/HttpServer1')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -660,6 +595,21 @@
 				"type": "AzureSqlDatabase",
 				"typeProperties": {
 					"connectionString": "[parameters('AzureSqlDatabase1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/HttpServer1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HttpServer",
+				"typeProperties": {
+					"url": "[parameters('HttpServer1_properties_typeProperties_url')]",
+					"enableServerCertificateValidation": true,
+					"authenticationType": "Anonymous"
 				}
 			},
 			"dependsOn": []
