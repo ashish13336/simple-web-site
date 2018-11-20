@@ -1,0 +1,13 @@
+{
+	"name": "AzureDataLakeStore2",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "AzureDataLakeStore",
+		"typeProperties": {
+			"dataLakeStoreUri": "https://ashishsh.azuredatalakestore.net/webhdfs/v1",
+			"tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+			"subscriptionId": "df673442-9f03-4dfb-83a5-4c9d9501b749",
+			"resourceGroupName": "ashishsh"
+		}
+	}
+}
