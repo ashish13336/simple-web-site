@@ -1,0 +1,19 @@
+{
+	"name": "HttpFile1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HttpServer1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "HttpFile",
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "setOfObjects"
+			},
+			"requestMethod": "Post",
+			"additionalHeaders": "Content-Type: application/x-www-form-urlencoded",
+			"requestBody": "grant_type:password\nclient_id:dd8178c3-3737-4887-8eef-62e0d20dca1d\nresource:https://graph.microsoft.com/\nusername:ashishsh@microsoft.com\npassword:Ashu$34473\nclient_secret:?!/@*X.|%--_%(j!-{6??@gH]=|=|\n"
+		}
+	}
+}
