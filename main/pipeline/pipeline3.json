@@ -59,7 +59,10 @@
 							"value": "Bearer @{activity('Web1').output.access_token}",
 							"type": "Expression"
 						},
-						"resource": "@{activity('Web1').output.resource}"
+						"resource": {
+							"value": "resource @{activity('Web1').output.resource}",
+							"type": "Expression"
+						}
 					},
 					"linkedServices": [
 						{
