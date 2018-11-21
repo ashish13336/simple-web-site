@@ -4,7 +4,7 @@
 	"properties": {
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://graph.microsoft.com",
+			"url": "https://graph.microsoft.com/v1.0/me/events",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
