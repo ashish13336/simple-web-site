@@ -16,7 +16,7 @@
 				"skipLineCount": 0,
 				"firstRowAsHeader": false
 			},
-			"relativeUrl": "https://graph.microsoft.com/",
+			"relativeUrl": "",
 			"requestMethod": "Get"
 		}
 	}
