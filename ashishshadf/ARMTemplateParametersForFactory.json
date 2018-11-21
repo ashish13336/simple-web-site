@@ -17,6 +17,9 @@
 		"AzureSqlDatabase1_connectionString": {
 			"value": ""
 		},
+		"HttpServerweb2_password": {
+			"value": ""
+		},
 		"linkedService1_password": {
 			"value": ""
 		},
@@ -24,10 +27,16 @@
 			"value": ""
 		},
 		"AzureBlob1_properties_typeProperties_fileName": {
-			"value": ""
+			"value": "pyscript.py"
 		},
 		"AzureBlob1_properties_typeProperties_folderPath": {
 			"value": "adfwalkthrough/Script"
+		},
+		"AzureBlob2Out_properties_typeProperties_fileName": {
+			"value": ""
+		},
+		"AzureBlob2Out_properties_typeProperties_folderPath": {
+			"value": "adfwalkthrough/Script/log"
 		},
 		"AzureDataLakeStoreFile1_properties_typeProperties_fileName": {
 			"value": "data.txt"
@@ -61,6 +70,12 @@
 		},
 		"HttpServer1_properties_typeProperties_url": {
 			"value": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token"
+		},
+		"HttpServerweb2_properties_typeProperties_url": {
+			"value": "https://graph.microsoft.com/v1.0/me/events"
+		},
+		"HttpServerweb2_properties_typeProperties_userName": {
+			"value": "Test01User@visinghr.onmicrosoft.com"
 		},
 		"linkedService1_properties_typeProperties_userName": {
 			"value": "admin"
