@@ -31,6 +31,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'linkedService1repro'"
 		},
+		"AzureBlob1_properties_typeProperties_fileName": {
+			"type": "string",
+			"defaultValue": ""
+		},
+		"AzureBlob1_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "adfwalkthrough/Script"
+		},
 		"AzureDataLakeStoreFile1_properties_typeProperties_fileName": {
 			"type": "string",
 			"defaultValue": "data.txt"
@@ -127,6 +135,39 @@
 								}
 							]
 						}
+					},
+					{
+						"name": "Web2",
+						"type": "WebActivity",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": "https://graph.microsoft.com/v1.0/me/events",
+							"method": "GET",
+							"headers": {
+								"Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFDNXVuYTBFVUZnVElGOEVsYXh0V2pUNVo3TWJPQm45U3lNajZpNi1KUmpNWWtybEZmUU5EWGxQcGVrMmdFRzVKRHJTUkZOYll2VTQwd0dOOC03Y05qZ0JQRUVIcVBRcUhXOGhGbTBuQktOS1NBQSIsImFsZyI6IlJTMjU2IiwieDV0Ijoid1VMbVlmc3FkUXVXdFZfLWh4VnRESkpaTTRRIiwia2lkIjoid1VMbVlmc3FkUXVXdFZfLWh4VnRESkpaTTRRIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNDIzY2JhODQtNzZkYi00YmQ5LWFiNjQtYTdlZmIwNGQ1NmZmLyIsImlhdCI6MTU0Mjc3NzE0MSwibmJmIjoxNTQyNzc3MTQxLCJleHAiOjE1NDI3ODEwNDEsImFjY3QiOjAsImFjciI6IjEiLCJhaW8iOiI0MlJnWUJDdjRaZmlNMVZwVSt4NjJTRFBWL0JtNnJieTVTNG5OK3hhdDIzYTBiVWQxM3NBIiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJBRERXZWJBcHAiLCJhcHBpZCI6IjQ4YmUyN2VjLWE3NWYtNDMzMi05MGJmLTMwNzllMzNlZWY2OSIsImFwcGlkYWNyIjoiMSIsImZhbWlseV9uYW1lIjoiVXNlciIsImdpdmVuX25hbWUiOiJUZXN0MDEiLCJpcGFkZHIiOiIxNjcuMjIwLjIzOC4xMzIiLCJuYW1lIjoiVGVzdDAxIFVzZXIiLCJvaWQiOiJmODY4MzBhMC03NjkxLTQ5ODQtYTFhYy04NGI0NTVlZWU0ZDUiLCJwbGF0ZiI6IjE0IiwicHVpZCI6IjEwMDMzRkZGQUZEMkZBQjciLCJzY3AiOiJVc2VyLlJlYWQgVXNlci5SZWFkV3JpdGUuQWxsIiwic3ViIjoiZVhtX1hWSmR0bjJjRW5rM2RtTVgxaGMzLWljR1F4QTc2R3FVNjRnRjJMVSIsInRpZCI6IjQyM2NiYTg0LTc2ZGItNGJkOS1hYjY0LWE3ZWZiMDRkNTZmZiIsInVuaXF1ZV9uYW1lIjoiVGVzdDAxVXNlckB2aXNpbmdoci5vbm1pY3Jvc29mdC5jb20iLCJ1cG4iOiJUZXN0MDFVc2VyQHZpc2luZ2hyLm9ubWljcm9zb2Z0LmNvbSIsInV0aSI6IjZVdDI5U0lRSzBLTkFGandMNUliQUEiLCJ2ZXIiOiIxLjAiLCJ4bXNfdGNkdCI6MTUzODExNDMxM30.FKP33_6ml7K2i4d88alWHLupYcBmPv5WhilKXXCKtBEZhJ0uy4dHx84qRLjZ3AwZmrRwO81fqF74QnLl6XR5gwN5t5QcPWm42fWMmB-2hom7e0qNRJhIwF4iIizB4oXb7GZ0viXGh-yfQnv5ijIcT0crI8KGFgFw-SzydKBEtH49ulsp9Ej0oChlg7EgTjIyVL2--GiPTJbVo1qjoGKp2eQYpYX8h4IGlOP36_TLvPMNTxajrQ10V6BRGNbEV31oyNBcCkyFgl7pTWe1q7AKte4MFOgCGu6B4aiWrqFSHyrADDebeSXTOAAaydw61BzzIy0b18VqOxnlaIoqvZMe0w"
+							},
+							"linkedServices": [
+								{
+									"referenceName": "HttpServer1",
+									"type": "LinkedServiceReference"
+								}
+							],
+							"datasets": [
+								{
+									"referenceName": "HttpFile1",
+									"type": "DatasetReference",
+									"parameters": {}
+								}
+							]
+						}
 					}
 				],
 				"annotations": []
@@ -134,6 +175,35 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/HttpServer1')]",
 				"[concat(variables('factoryId'), '/datasets/HttpFile1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlob1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureBlob",
+				"typeProperties": {
+					"format": {
+						"type": "TextFormat",
+						"columnDelimiter": ",",
+						"rowDelimiter": "",
+						"nullValue": "\\N",
+						"treatEmptyAsNull": true,
+						"skipLineCount": 0,
+						"firstRowAsHeader": false
+					},
+					"fileName": "[parameters('AzureBlob1_properties_typeProperties_fileName')]",
+					"folderPath": "[parameters('AzureBlob1_properties_typeProperties_folderPath')]"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
 			]
 		},
 		{

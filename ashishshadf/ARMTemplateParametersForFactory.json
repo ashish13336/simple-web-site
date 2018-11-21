@@ -23,6 +23,12 @@
 		"linkedService1repro_password": {
 			"value": ""
 		},
+		"AzureBlob1_properties_typeProperties_fileName": {
+			"value": ""
+		},
+		"AzureBlob1_properties_typeProperties_folderPath": {
+			"value": "adfwalkthrough/Script"
+		},
 		"AzureDataLakeStoreFile1_properties_typeProperties_fileName": {
 			"value": "data.txt"
 		},
