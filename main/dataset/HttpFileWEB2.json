@@ -17,7 +17,7 @@
 				"firstRowAsHeader": false
 			},
 			"requestMethod": "Get",
-			"additionalHeaders": "Bearer @{activity('webActivityName').output.access_token}"
+			"additionalHeaders": "Bearer @{'Web1').output.access_token}"
 		}
 	}
 }
