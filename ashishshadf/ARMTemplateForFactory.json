@@ -109,7 +109,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/pipeline3')]",
+			"name": "[concat(parameters('factoryName'), '/pipeline4')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -173,10 +173,6 @@
 							"headers": {
 								"authorization": {
 									"value": "Bearer @{activity('Web1').output.access_token}",
-									"type": "Expression"
-								},
-								"resource": {
-									"value": "resource @{activity('Web1').output.resource}",
 									"type": "Expression"
 								}
 							},
