@@ -710,11 +710,7 @@
 						"skipLineCount": 0,
 						"firstRowAsHeader": false
 					},
-					"requestMethod": "Get",
-					"additionalHeaders": {
-						"value": "Bearer @{'Web1').output.access_token}",
-						"type": "Expression"
-					}
+					"requestMethod": "Get"
 				}
 			},
 			"dependsOn": [
