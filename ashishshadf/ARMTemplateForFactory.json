@@ -55,6 +55,22 @@
 			"type": "string",
 			"defaultValue": "ashishsh"
 		},
+		"AzureDataLakeStore2_properties_typeProperties_dataLakeStoreUri": {
+			"type": "string",
+			"defaultValue": "https://ashishsh.azuredatalakestore.net/webhdfs/v1"
+		},
+		"AzureDataLakeStore2_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+		},
+		"AzureDataLakeStore2_properties_typeProperties_subscriptionId": {
+			"type": "string",
+			"defaultValue": "df673442-9f03-4dfb-83a5-4c9d9501b749"
+		},
+		"AzureDataLakeStore2_properties_typeProperties_resourceGroupName": {
+			"type": "string",
+			"defaultValue": "ashishsh"
+		},
 		"HttpServer1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token"
@@ -96,7 +112,7 @@
 							"headers": {
 								"Content-Type": "application/x-www-form-urlencoded"
 							},
-							"body": "grant_type=password&client_id=48be27ec-a75f-4332-90bf-3079e33eef69&resource=https://graph.microsoft.com/&username=Test01User@visinghr.onmicrosoft.com&password=India@123&client_secret=/jeEyxiLrQ+T8BtDZphcs6a+tTSXbFEgGg2pa80vti4=",
+							"body": "grant_type=password&resource=https://graph.microsoft.com/&username=Test01User@visinghr.onmicrosoft.com&password=India@123&client_secret=/jeEyxiLrQ+T8BtDZphcs6a+tTSXbFEgGg2pa80vti4=&client_id=48be27ec-a75f-4332-90bf-3079e33eef69",
 							"linkedServices": [
 								{
 									"referenceName": "HttpServer1",
@@ -582,6 +598,22 @@
 					"tenant": "[parameters('AzureDataLakeStore1_properties_typeProperties_tenant')]",
 					"subscriptionId": "[parameters('AzureDataLakeStore1_properties_typeProperties_subscriptionId')]",
 					"resourceGroupName": "[parameters('AzureDataLakeStore1_properties_typeProperties_resourceGroupName')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStore2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDataLakeStore",
+				"typeProperties": {
+					"dataLakeStoreUri": "[parameters('AzureDataLakeStore2_properties_typeProperties_dataLakeStoreUri')]",
+					"tenant": "[parameters('AzureDataLakeStore2_properties_typeProperties_tenant')]",
+					"subscriptionId": "[parameters('AzureDataLakeStore2_properties_typeProperties_subscriptionId')]",
+					"resourceGroupName": "[parameters('AzureDataLakeStore2_properties_typeProperties_resourceGroupName')]"
 				}
 			},
 			"dependsOn": []

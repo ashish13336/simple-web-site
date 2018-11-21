@@ -41,6 +41,18 @@
 		"AzureDataLakeStore1_properties_typeProperties_resourceGroupName": {
 			"value": "ashishsh"
 		},
+		"AzureDataLakeStore2_properties_typeProperties_dataLakeStoreUri": {
+			"value": "https://ashishsh.azuredatalakestore.net/webhdfs/v1"
+		},
+		"AzureDataLakeStore2_properties_typeProperties_tenant": {
+			"value": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+		},
+		"AzureDataLakeStore2_properties_typeProperties_subscriptionId": {
+			"value": "df673442-9f03-4dfb-83a5-4c9d9501b749"
+		},
+		"AzureDataLakeStore2_properties_typeProperties_resourceGroupName": {
+			"value": "ashishsh"
+		},
 		"HttpServer1_properties_typeProperties_url": {
 			"value": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token"
 		},
