@@ -1,5 +1,5 @@
 {
-	"name": "AzureBlob1",
+	"name": "AzureBlob2Out",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
@@ -22,8 +22,8 @@
 				"skipLineCount": 0,
 				"firstRowAsHeader": false
 			},
-			"fileName": "pyscript.py",
-			"folderPath": "adfwalkthrough/Script"
+			"fileName": "",
+			"folderPath": "adfwalkthrough/Script/log"
 		}
 	}
 }
