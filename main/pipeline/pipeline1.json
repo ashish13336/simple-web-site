@@ -55,7 +55,7 @@
 					"url": "https://graph.microsoft.com/v1.0/me/events",
 					"method": "GET",
 					"headers": {
-						"authorization": "Bearer @{activity('Web1').output.token}"
+						"authorization": "Bearer @{activity('Web1').output.access_token}"
 					},
 					"linkedServices": [
 						{
