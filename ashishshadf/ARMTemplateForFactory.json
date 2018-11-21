@@ -23,10 +23,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
 		},
-		"HttpServerweb2_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'HttpServerweb2'"
-		},
 		"linkedService1_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'linkedService1'"
@@ -97,11 +93,7 @@
 		},
 		"HttpServerweb2_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://graph.microsoft.com/v1.0/me/events"
-		},
-		"HttpServerweb2_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Test01User@visinghr.onmicrosoft.com"
+			"defaultValue": "https://graph.microsoft.com"
 		},
 		"linkedService1_properties_typeProperties_userName": {
 			"type": "string",
@@ -117,7 +109,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/pipeline2')]",
+			"name": "[concat(parameters('factoryName'), '/pipeline3')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -828,12 +820,7 @@
 				"typeProperties": {
 					"url": "[parameters('HttpServerweb2_properties_typeProperties_url')]",
 					"enableServerCertificateValidation": true,
-					"authenticationType": "Basic",
-					"userName": "[parameters('HttpServerweb2_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('HttpServerweb2_password')]"
-					}
+					"authenticationType": "Anonymous"
 				}
 			},
 			"dependsOn": []

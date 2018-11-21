@@ -17,9 +17,6 @@
 		"AzureSqlDatabase1_connectionString": {
 			"value": ""
 		},
-		"HttpServerweb2_password": {
-			"value": ""
-		},
 		"linkedService1_password": {
 			"value": ""
 		},
@@ -72,10 +69,7 @@
 			"value": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token"
 		},
 		"HttpServerweb2_properties_typeProperties_url": {
-			"value": "https://graph.microsoft.com/v1.0/me/events"
-		},
-		"HttpServerweb2_properties_typeProperties_userName": {
-			"value": "Test01User@visinghr.onmicrosoft.com"
+			"value": "https://graph.microsoft.com"
 		},
 		"linkedService1_properties_typeProperties_userName": {
 			"value": "admin"
