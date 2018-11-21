@@ -18,7 +18,7 @@
 					"headers": {
 						"Content-Type": "application/x-www-form-urlencoded"
 					},
-					"body": "grant_type=client_credentials&resource=https://graph.microsoft.com/v1.0/&username=Test01User@visinghr.onmicrosoft.com&password=India@123&client_secret=%2FjeEyxiLrQ%2BT8BtDZphcs6a%2BtTSXbFEgGg2pa80vti4%3D&client_id=48be27ec-a75f-4332-90bf-3079e33eef69",
+					"body": "grant_type=password&resource=https://graph.microsoft.com/v1.0/&username=Test01User@visinghr.onmicrosoft.com&password=India@123&client_secret=%2FjeEyxiLrQ%2BT8BtDZphcs6a%2BtTSXbFEgGg2pa80vti4%3D&client_id=48be27ec-a75f-4332-90bf-3079e33eef69",
 					"linkedServices": [
 						{
 							"referenceName": "HttpServer1",
