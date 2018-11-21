@@ -16,8 +16,7 @@
 				"skipLineCount": 0,
 				"firstRowAsHeader": false
 			},
-			"requestMethod": "Get",
-			"additionalHeaders": "Bearer @{'Web1').output.access_token}"
+			"requestMethod": "Get"
 		}
 	}
 }
