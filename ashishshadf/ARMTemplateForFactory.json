@@ -712,7 +712,7 @@
 					},
 					"requestMethod": "Get",
 					"additionalHeaders": {
-						"value": "Bearer @{activity('webActivityName').output.access_token}",
+						"value": "Bearer @{'Web1').output.access_token}",
 						"type": "Expression"
 					}
 				}
