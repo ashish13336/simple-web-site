@@ -172,7 +172,7 @@
 							"method": "GET",
 							"headers": {
 								"authorization": {
-									"value": "Bearer @{activity('Web1').output.access_token}",
+									"value": "Bearer @{activity('').output.access_token}",
 									"type": "Expression"
 								}
 							},
