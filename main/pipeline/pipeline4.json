@@ -32,47 +32,6 @@
 						}
 					]
 				}
-			},
-			{
-				"name": "Web2",
-				"type": "WebActivity",
-				"dependsOn": [
-					{
-						"activity": "Web1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"typeProperties": {
-					"url": "https://graph.microsoft.com/v1.0/me/events",
-					"method": "GET",
-					"headers": {
-						"authorization": {
-							"value": "Bearer @{activity('Web1').output.token}",
-							"type": "Expression"
-						}
-					},
-					"linkedServices": [
-						{
-							"referenceName": "HttpServerweb2",
-							"type": "LinkedServiceReference"
-						}
-					],
-					"datasets": [
-						{
-							"referenceName": "HttpFileWEB2",
-							"type": "DatasetReference"
-						}
-					]
-				}
 			}
 		]
 	}
