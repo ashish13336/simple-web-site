@@ -43,8 +43,8 @@
 				]
 			},
 			{
-				"name": "Until1",
-				"type": "Until",
+				"name": "Copy Data2",
+				"type": "Copy",
 				"dependsOn": [
 					{
 						"activity": "Copy Data1",
@@ -53,8 +53,16 @@
 						]
 					}
 				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
 				"typeProperties": {
-					"timeout": "7.00:00:00"
+					"enableStaging": false,
+					"dataIntegrationUnits": 0
 				}
 			}
 		]
