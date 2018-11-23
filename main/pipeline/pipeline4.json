@@ -56,7 +56,7 @@
 					"method": "GET",
 					"headers": {
 						"authorization": {
-							"value": "Bearer @{activity('').output.access_token}",
+							"value": "Bearer @{activity('Web1').output.token}",
 							"type": "Expression"
 						}
 					},
