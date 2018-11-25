@@ -227,7 +227,8 @@
 				],
 				"typeProperties": {
 					"format": {
-						"type": "AvroFormat"
+						"type": "JsonFormat",
+						"filePattern": "setOfObjects"
 					},
 					"fileName": "[parameters('AzureBlob1_properties_typeProperties_fileName')]",
 					"folderPath": "[parameters('AzureBlob1_properties_typeProperties_folderPath')]"
