@@ -227,8 +227,7 @@
 				],
 				"typeProperties": {
 					"format": {
-						"type": "JsonFormat",
-						"filePattern": "setOfObjects"
+						"type": "OrcFormat"
 					},
 					"fileName": "[parameters('AzureBlob1_properties_typeProperties_fileName')]",
 					"folderPath": "[parameters('AzureBlob1_properties_typeProperties_folderPath')]"
@@ -257,13 +256,7 @@
 				],
 				"typeProperties": {
 					"format": {
-						"type": "TextFormat",
-						"columnDelimiter": ",",
-						"rowDelimiter": "",
-						"nullValue": "\\N",
-						"treatEmptyAsNull": true,
-						"skipLineCount": 0,
-						"firstRowAsHeader": false
+						"type": "OrcFormat"
 					},
 					"fileName": "[parameters('AzureBlob2Out_properties_typeProperties_fileName')]",
 					"folderPath": "[parameters('AzureBlob2Out_properties_typeProperties_folderPath')]"
