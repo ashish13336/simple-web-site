@@ -14,8 +14,7 @@
 		],
 		"typeProperties": {
 			"format": {
-				"type": "JsonFormat",
-				"filePattern": "setOfObjects"
+				"type": "OrcFormat"
 			},
 			"fileName": "pyscript.py",
 			"folderPath": "adfwalkthrough/Script"
