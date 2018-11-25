@@ -14,7 +14,8 @@
 		],
 		"typeProperties": {
 			"format": {
-				"type": "AvroFormat"
+				"type": "JsonFormat",
+				"filePattern": "setOfObjects"
 			},
 			"fileName": "pyscript.py",
 			"folderPath": "adfwalkthrough/Script"
