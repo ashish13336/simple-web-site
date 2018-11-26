@@ -35,6 +35,51 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Copy Data2",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Copy Data1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "BlobSource",
+						"recursive": {
+							"value": "@{activity('Copy Data1').output.status} ",
+							"type": "Expression"
+						}
+					},
+					"sink": {
+						"type": "BlobSink"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0
+				},
+				"inputs": [
+					{
+						"referenceName": "AzureBlob1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureBlob2Out",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		]
 	}

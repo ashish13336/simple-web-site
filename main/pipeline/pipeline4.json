@@ -5,6 +5,20 @@
 			{
 				"name": "Web1",
 				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Copy Data1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					},
+					{
+						"activity": "Copy Data2",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -17,7 +31,10 @@
 					"method": "POST",
 					"headers": {
 						"Content-Type": "application/x-www-form-urlencoded",
-						"name": "@{pipeline().DataFactory}"
+						"name": {
+							"value": "@{pipeline().DataFactory}",
+							"type": "Expression"
+						}
 					},
 					"body": "grant_type=password&resource=https://graph.microsoft.com/&username=Test01User@visinghr.onmicrosoft.com&password=India@123&client_secret=%2FjeEyxiLrQ%2BT8BtDZphcs6a%2BtTSXbFEgGg2pa80vti4%3D&client_id=48be27ec-a75f-4332-90bf-3079e33eef69",
 					"linkedServices": [
@@ -33,6 +50,40 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "Copy Data1",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"enableStaging": false,
+					"dataIntegrationUnits": 0
+				}
+			},
+			{
+				"name": "Copy Data2",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"enableStaging": false,
+					"dataIntegrationUnits": 0
+				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition"
 			}
 		]
 	}
