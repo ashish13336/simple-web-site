@@ -15,10 +15,10 @@
 				"typeProperties": {
 					"source": {
 						"type": "BlobSource",
-						"recursive": true
+						"recursive": false
 					},
 					"sink": {
-						"type": "BlobSink"
+						"type": "AzureDataLakeStoreSink"
 					},
 					"enableStaging": false,
 					"dataIntegrationUnits": 0
@@ -31,7 +31,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureBlob2Out",
+						"referenceName": "AzureDataLakeStoreFile1",
 						"type": "DatasetReference"
 					}
 				]
