@@ -175,7 +175,7 @@
 							"source": {
 								"type": "BlobSource",
 								"recursive": {
-									"value": "@{activity('Copy Data1').output.status} ",
+									"value": "@{activity('Copy Data1').output.executionDetails.status} ",
 									"type": "Expression"
 								}
 							},
