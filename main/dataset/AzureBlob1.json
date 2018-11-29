@@ -14,10 +14,16 @@
 		],
 		"typeProperties": {
 			"format": {
-				"type": "OrcFormat"
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"rowDelimiter": "",
+				"nullValue": "\\N",
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
+				"firstRowAsHeader": false
 			},
-			"fileName": "pyscript.py",
-			"folderPath": "adfwalkthrough/Script"
+			"fileName": "users.csv",
+			"folderPath": "adfwalkthrough"
 		}
 	}
 }
