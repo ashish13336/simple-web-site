@@ -282,7 +282,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pipeline2')]",
+			"name": "[concat(parameters('factoryName'), '/pipeline3')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -350,7 +350,7 @@
 								]
 							},
 							{
-								"activity": "Copy Data4",
+								"activity": "Copy Data5",
 								"dependencyConditions": [
 									"Skipped",
 									"Failed"
@@ -390,7 +390,7 @@
 						"type": "Copy",
 						"dependsOn": [
 							{
-								"activity": "Copy Data4",
+								"activity": "Copy Data5",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -488,7 +488,7 @@
 						]
 					},
 					{
-						"name": "Copy Data4",
+						"name": "Copy Data5",
 						"type": "Copy",
 						"dependsOn": [
 							{
