@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy for",
+				"name": "Copy for 1",
 				"type": "Copy",
 				"policy": {
 					"timeout": "7.00:00:00",
@@ -193,7 +193,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Copy for",
+						"activity": "Copy for 1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
