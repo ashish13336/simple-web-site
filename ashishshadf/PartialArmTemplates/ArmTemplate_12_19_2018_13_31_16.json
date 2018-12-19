@@ -6,43 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory Name",
 			"defaultValue": "ashishshadf"
-		},
-		"integrationRuntime_integrationRuntime1": {
-			"type": "string",
-			"metadata": "Integration Runtime Name",
-			"defaultValue": "integrationRuntime1"
-		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
-		},
-		"AzureBlobStorage2_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
-		},
-		"AzureBlob1_properties_typeProperties_fileName": {
-			"type": "string",
-			"defaultValue": "saple.txt"
-		},
-		"AzureBlob1_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "adfwalkthrough/data"
-		},
-		"AzureBlob2_properties_typeProperties_fileName": {
-			"type": "string",
-			"defaultValue": ""
-		},
-		"AzureBlob2_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "adfwalkthrough"
-		},
-		"AzureBlob3_properties_typeProperties_fileName": {
-			"type": "string",
-			"defaultValue": "abc.txt"
-		},
-		"AzureBlob3_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "adfjobs/HiveQueryJobs"
 		}
 	},
 	"variables": {
@@ -58,7 +21,6 @@
 					{
 						"name": "Copy Data1",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -66,7 +28,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "BlobSource",
@@ -87,15 +48,13 @@
 						"inputs": [
 							{
 								"referenceName": "AzureBlob1",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "AzureBlob2",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -110,7 +69,6 @@
 								]
 							}
 						],
-						"userProperties": [],
 						"typeProperties": {
 							"expression": {
 								"value": "@equals(activity('Copy Data1').output.executionDetails[0].status,'Failed')",
@@ -120,7 +78,6 @@
 								{
 									"name": "Web1",
 									"type": "WebActivity",
-									"dependsOn": [],
 									"policy": {
 										"timeout": "7.00:00:00",
 										"retry": 0,
@@ -128,18 +85,15 @@
 										"secureOutput": false,
 										"secureInput": false
 									},
-									"userProperties": [],
 									"typeProperties": {
 										"url": "www.bing.com",
-										"method": "GET",
-										"headers": {}
+										"method": "GET"
 									}
 								}
 							]
 						}
 					}
-				],
-				"annotations": []
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/AzureBlob1')]",
@@ -155,7 +109,6 @@
 					{
 						"name": "Copy for 1",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -163,7 +116,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "BlobSource",
@@ -184,15 +136,13 @@
 						"inputs": [
 							{
 								"referenceName": "AzureBlob1",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "AzureBlob2",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -222,7 +172,6 @@
 								]
 							}
 						],
-						"userProperties": [],
 						"typeProperties": {
 							"expression": {
 								"value": "@activity('Copy for').output",
@@ -232,7 +181,6 @@
 								{
 									"name": "Web1",
 									"type": "WebActivity",
-									"dependsOn": [],
 									"policy": {
 										"timeout": "7.00:00:00",
 										"retry": 0,
@@ -240,11 +188,9 @@
 										"secureOutput": false,
 										"secureInput": false
 									},
-									"userProperties": [],
 									"typeProperties": {
 										"url": "www.google.com",
-										"method": "GET",
-										"headers": {}
+										"method": "GET"
 									}
 								}
 							]
@@ -268,7 +214,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "BlobSource",
@@ -289,15 +234,13 @@
 						"inputs": [
 							{
 								"referenceName": "AzureBlob1",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "AzureBlob3",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -319,7 +262,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "BlobSource",
@@ -340,15 +282,13 @@
 						"inputs": [
 							{
 								"referenceName": "AzureBlob1",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "AzureBlob2",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -370,7 +310,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "BlobSource",
@@ -385,20 +324,17 @@
 						"inputs": [
 							{
 								"referenceName": "AzureBlob1",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "AzureBlob2",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
-				],
-				"annotations": []
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/AzureBlob1')]",
@@ -415,7 +351,6 @@
 					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureBlob",
 				"structure": [
 					{
@@ -433,13 +368,10 @@
 						"skipLineCount": 0,
 						"firstRowAsHeader": false
 					},
-					"fileName": "[parameters('AzureBlob1_properties_typeProperties_fileName')]",
-					"folderPath": "[parameters('AzureBlob1_properties_typeProperties_folderPath')]"
+					"fileName": "saple.txt",
+					"folderPath": "adfwalkthrough/data"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/AzureBlob2')]",
@@ -450,7 +382,6 @@
 					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureBlob",
 				"structure": [
 					{
@@ -468,13 +399,10 @@
 						"skipLineCount": 0,
 						"firstRowAsHeader": false
 					},
-					"fileName": "[parameters('AzureBlob2_properties_typeProperties_fileName')]",
-					"folderPath": "[parameters('AzureBlob2_properties_typeProperties_folderPath')]"
+					"fileName": "",
+					"folderPath": "adfwalkthrough"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/AzureBlob3')]",
@@ -485,7 +413,6 @@
 					"referenceName": "AzureBlobStorage2",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureBlob",
 				"typeProperties": {
 					"format": {
@@ -497,49 +424,10 @@
 						"skipLineCount": 0,
 						"firstRowAsHeader": false
 					},
-					"fileName": "[parameters('AzureBlob3_properties_typeProperties_fileName')]",
-					"folderPath": "[parameters('AzureBlob3_properties_typeProperties_folderPath')]"
+					"fileName": "abc.txt",
+					"folderPath": "adfjobs/HiveQueryJobs"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage2')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage2')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage2_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/', parameters('integrationRuntime_integrationRuntime1'))]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"typeProperties": {}
-			},
-			"dependsOn": []
+			}
 		}
 	]
 }
