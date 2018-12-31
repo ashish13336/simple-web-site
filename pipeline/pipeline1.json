@@ -13,10 +13,7 @@
 					"secureInput": false
 				},
 				"typeProperties": {
-					"command": {
-						"value": "@pipeline()",
-						"type": "Expression"
-					},
+					"command": "cmd /c \"%AZ_BATCH_APP_PACKAGE_first#1.0%\\\\first\\\\first.sh\" ",
 					"resourceLinkedService": {
 						"referenceName": "AzureBlobStorage1",
 						"type": "LinkedServiceReference"
@@ -24,7 +21,7 @@
 					"folderPath": "adfjobs"
 				},
 				"linkedServiceName": {
-					"referenceName": "AzureBatch1",
+					"referenceName": "AzureBatch2",
 					"type": "LinkedServiceReference"
 				}
 			}
