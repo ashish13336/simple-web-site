@@ -372,9 +372,6 @@
 				"parameters": {
 					"name": {
 						"type": "String"
-					},
-					"RecCount": {
-						"type": "String"
 					}
 				},
 				"annotations": []
