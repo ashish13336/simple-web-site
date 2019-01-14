@@ -15,7 +15,10 @@
 				"typeProperties": {
 					"notebookPath": "/Users/ashishsh@microsoft.com/test/test",
 					"baseParameters": {
-						"input": "@pipeline().parameters.name"
+						"input": {
+							"value": "@pipeline().parameters.name",
+							"type": "Expression"
+						}
 					}
 				},
 				"linkedServiceName": {
@@ -26,6 +29,9 @@
 		],
 		"parameters": {
 			"name": {
+				"type": "String"
+			},
+			"output": {
 				"type": "String"
 			}
 		}
