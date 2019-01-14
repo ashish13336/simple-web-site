@@ -186,6 +186,9 @@
 				"parameters": {
 					"name": {
 						"type": "String"
+					},
+					"output": {
+						"type": "String"
 					}
 				},
 				"annotations": []
