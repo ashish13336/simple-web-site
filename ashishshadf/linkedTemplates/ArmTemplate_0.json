@@ -133,6 +133,10 @@
 								"input": {
 									"value": "@pipeline().parameters.name",
 									"type": "Expression"
+								},
+								"output": {
+									"value": "@pipeline().parameters.RecCount",
+									"type": "Expression"
 								}
 							}
 						},
@@ -146,7 +150,7 @@
 					"name": {
 						"type": "String"
 					},
-					"output": {
+					"RecCount": {
 						"type": "String"
 					}
 				},
