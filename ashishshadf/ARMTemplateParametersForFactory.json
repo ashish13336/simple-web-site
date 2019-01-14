@@ -14,6 +14,9 @@
 		"AzureBlobStorage2_connectionString": {
 			"value": ""
 		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
 		"AzureBlob1_properties_typeProperties_fileName": {
 			"value": "saple.txt"
 		},
