@@ -1,0 +1,34 @@
+{
+	"name": "pipeline5",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"url": "https://graph.microsoft.com/v1.0/me/",
+					"method": "GET",
+					"linkedServices": [
+						{
+							"referenceName": "AzureBlobStorage1",
+							"type": "LinkedServiceReference"
+						}
+					],
+					"datasets": [
+						{
+							"referenceName": "AzureBlob1",
+							"type": "DatasetReference"
+						}
+					]
+				}
+			}
+		]
+	}
+}
